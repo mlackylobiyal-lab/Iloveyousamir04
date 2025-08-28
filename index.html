@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love 💌</title>
+  <style>
+    body {
+      background: lavenderblush;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+    .envelope {
+      width: 200px;
+      height: 120px;
+      background: pink;
+      position: relative;
+      cursor: pointer;
+      transition: transform 1s;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 60px solid hotpink;
+    }
+    .heart {
+      display: none;
+      font-size: 60px;
+      text-align: center;
+      margin-top: 20px;
+      animation: heartbeat 1s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+    .message {
+      display: none;
+      text-align: center;
+      font-size: 18px;
+      padding: 20px;
+      color: #444;
+    }
+    .flowers {
+      font-size: 30px;
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px pink, 0 0 10px violet; }
+      to { text-shadow: 0 0 15px hotpink, 0 0 20px purple; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Envelope -->
+  <div class="envelope" onclick="openLetter()"></div>
+
+  <!-- Heart -->
+  <div class="heart" id="heart">❤️</div>
+
+  <!-- Message -->
+  <div class="message" id="msgBox">
+    <div class="flowers">🌸🌺🌼</div>
+    <p>
+      Sorry darling for everything 🫠🎀<br>
+      I will never ever do this type of mistakes again 😖<br>
+      But I love you much 💖
+    </p>
+    <div class="flowers">🌸🌺🌼</div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.querySelector(".envelope").style.display = "none";
+      document.getElementById("heart").style.display = "block";
+
+      setTimeout(() => {
+        document.getElementById("heart").style.display = "none";
+        document.getElementById("msgBox").style.display = "block";
+      }, 2000); // after 2 seconds heart disappears → message shows
+    }
+  </script>
+
+</body>
+</html>
